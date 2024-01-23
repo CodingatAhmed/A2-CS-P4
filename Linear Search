@@ -1,1 +1,7 @@
-CodingatAhmed/A2-CS-P4
+# def LinearSearch(value):
+#     global stackData
+#     found = False
+#     for count in range(len(stackData)):
+#         if value == stackData[count]:
+#             found = True 
+#     return found
