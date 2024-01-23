@@ -1,0 +1,12 @@
+# but make sure the array is sorted first then apply binary search
+# def binarySearch(val):
+#     first = 0
+#     last = len(array) - 1
+#     while first <= last:
+#         midVal = (first + last) // 2
+#         if val < array[midVal]:
+#             last = midVal - 1
+#         elif val > array[midVal]:
+#             first = midVal + 1
+#         else:
+#             return midVal
