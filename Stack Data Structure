@@ -1,0 +1,23 @@
+# Push Operation
+# Array = [0] * 5
+# stackPointer = -1
+# def Push(item):
+#     global stackPointer
+#     if stackPointer < len(Array) - 1:
+#         stackPointer += 1
+#         Array[stackPointer] = item
+#         print(Array)
+#     else:
+#         print("Stack is full, cannot enter more values")
+
+# Pop Operation
+myArr = [1,3,5,7,8]
+StackPoint = len(myArr) - 1
+def Pop():
+    global StackPoint
+    if StackPoint > -1:
+        myArr[StackPoint] = None
+        StackPoint -= 1
+        print(myArr)
+    else:
+        print("Stack is empty,cannot pop")
