@@ -1,0 +1,8 @@
+// Factorial Code
+def RecursionFactorial(number):
+    finalNum = 0
+    if number == 0 or number == 1:
+        return 1
+    else:
+        finalNum = number * RecursionFactorial(number - 1)
+        return finalNum
