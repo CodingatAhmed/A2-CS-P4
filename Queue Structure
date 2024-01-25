@@ -1,0 +1,30 @@
+#Linear Queue Structure
+myArr = [0,0,0,0,0]
+queueLength = 0
+frontPointer = -1
+backPointer = 0
+#Enqueue
+def enQueue(item):
+    global frontPointer,myArr,queueLength
+    if queueLength < len(myArr):
+        if frontPointer < len(myArr) - 1:
+            frontPointer += 1
+            myArr[frontPointer] = item
+        else:
+            frontPointer = 0
+            myArr[frontPointer] = item
+        queueLength +=1
+    else:
+        print("Queue is full,cannot enqueue")
+#Dequeue
+def deQueue():
+    global backPointer,myArr,queueLength,item,frontPointer
+    if queueLength == 0:
+        print("Queue is empty,cannot dequeue")
+    else:
+        if frontPointer == len(myArr) - 1:
+            frontPointer = 0
+        else:    
+            frontPointer +=1
+        myArr[frontPointer] = None
+    queueLength -=1
