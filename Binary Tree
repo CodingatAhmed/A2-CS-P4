@@ -1,0 +1,60 @@
+class Item:
+    def __init__(self,insertData,LeftPointer,Rightpointer):
+        self.item = insertData
+        self.Leftpointer = LeftPointer
+        self.Rightpointer = Rightpointer
+nextFreePointer = 0
+itemPointer = 0
+def FindItem(itemToSearch):
+    global itemPointer
+    rootPointer = 0
+    itemPointer = rootPointer
+    while myTree[itemPointer].item != itemToSearch and itemPointer != -1:
+        if myTree[itemPointer].item > itemToSearch :
+            # print(myTree[itemPointer].item,"before left")
+            itemPointer = myTree[itemPointer].Leftpointer
+            # print(myTree[itemPointer].item,myTree[itemPointer].Leftpointer,"after left")
+        else:
+            # print(myTree[itemPointer].item,"before right")
+            itemPointer = myTree[itemPointer].Rightpointer
+            # print(myTree[itemPointer].item,"after right")
+    print(f'the left pointer of the item is {myTree[itemPointer].Leftpointer}, the right pointer of item found is {myTree[itemPointer].Rightpointer} and the index at which data is located is {itemPointer}')
+myTree = [Item(27,1,2),Item(19,4,6),Item(36,-1,3),Item(42,-1,5),Item(16,-1,7),Item(89,8,-1),Item(21,-1,-1),Item(17,-1,-1),Item(55,-1,-1),Item(10,None,None),Item(11,None,None),Item(-1,None,None)]
+
+def addItem(itemToAdd):
+    global nextFreePointer,itemPointer
+    found = False
+    rootPointer = 0
+    itemPointer = rootPointer
+    while myTree[nextFreePointer].Leftpointer != None and myTree[nextFreePointer].Rightpointer != None:
+        nextFreePointer += 1
+    while found == False:
+        if myTree[itemPointer].item > itemToAdd:
+            if myTree[itemPointer].Leftpointer == -1:
+                myTree[itemPointer].Leftpointer = nextFreePointer
+                # print(myTree[itemPointer].item,"before left")
+                itemPointer = myTree[itemPointer].Leftpointer
+                found = True
+                # print(myTree[itemPointer].item,"after left")
+            else:
+                itemPointer = myTree[itemPointer].Leftpointer
+                # print(myTree[itemPointer].item,"before right")
+
+        else:    # if myTree[itemPointer].item < itemToAdd:
+                if myTree[itemPointer].Rightpointer == -1:
+                    myTree[itemPointer].Rightpointer = nextFreePointer
+                    # print(myTree[itemPointer].item,"after right")
+                    found = True
+                else:
+                    itemPointer = myTree[itemPointer].Rightpointer
+                # print(myTree[itemPointer].item,"after right")
+    myTree[nextFreePointer].item = itemToAdd
+    myTree[nextFreePointer].Leftpointer = -1
+    myTree[nextFreePointer].Rightpointer = -1
+    # print(myTree[nextFreePointer].item,"Pointer")
+    nextFreePointer += 1
+addItem(18)
+addItem(7)
+FindItem(17)
+FindItem(7)
+FindItem(16)
