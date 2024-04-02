@@ -1,0 +1,14 @@
+# array in ascending order
+array = [1,7,2,9,0,10,5,8,6,4,3]
+for x in range(len(array)):
+    for y in range(len(array) - 1):
+        if array[x] < array[y]:
+            array[x],array[y] = array[y],array[x]
+print(array)
+# array in descending order
+array = [1,7,2,9,0,10,5,8,6,4,3]
+for x in range(len(array)):
+    for y in range(len(array) - 1):
+        if array[x] > array[y]:
+            array[x],array[y] = array[y],array[x]
+print(array)
