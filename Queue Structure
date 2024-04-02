@@ -25,6 +25,6 @@ def deQueue():
         if frontPointer == len(myArr) - 1:
             frontPointer = 0
         else:    
+            myArr[frontPointer] = None
             frontPointer +=1
-        myArr[frontPointer] = None
     queueLength -=1
