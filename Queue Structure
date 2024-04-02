@@ -22,9 +22,9 @@ def deQueue():
     if queueLength == 0:
         print("Queue is empty,cannot dequeue")
     else:
-        if frontPointer == len(myArr) - 1:
-            frontPointer = 0
+        myArr[backPointer] = None
+        if backPointer == len(myArr) - 1:
+            backPointer = 0
         else:    
-            myArr[frontPointer] = None
-            frontPointer +=1
+            backPointer += 1 
     queueLength -=1
