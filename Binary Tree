@@ -58,3 +58,33 @@ addItem(7)
 FindItem(17)
 FindItem(7)
 FindItem(16)
+
+
+BinaryTree = [[1,20,5],[2,15,-1],[-1,3,3],[-1,9,4],[-1,10,-1],[-1,58,-1],[-1,-1,-1]]
+# in InOrder Traversal we follow the sequence Left Root Right
+def InOrder(root):
+    global BinaryTree
+    if BinaryTree[root][0] != -1:
+        InOrder(BinaryTree[root][0])
+    print(BinaryTree[root][1])
+    if BinaryTree[root][2] != -1:
+        InOrder(BinaryTree[root][2])
+    
+# In Pre Order Traversal we use the sequence Root left Right
+def PreOrder(root):
+    global BinaryTree
+    print(BinaryTree[root][1])
+    if BinaryTree[root][0] != -1:
+        InOrder(BinaryTree[root][0])
+    if BinaryTree[root][2] != -1:
+        InOrder(BinaryTree[root][2])
+    
+# in Post Order Traversal we use the sequence Left Right Root 
+def PostOrder(root):
+    global BinaryTree
+    if BinaryTree[root][0] != -1:
+        InOrder(BinaryTree[root][0])
+    if BinaryTree[root][2] != -1:
+        InOrder(BinaryTree[root][2])
+    print(BinaryTree[root][1])
+    
