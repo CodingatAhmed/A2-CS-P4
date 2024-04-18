@@ -1,0 +1,10 @@
+# openFile = open("integer.txt","r+") command for opening file
+# openFile = open("integer.txt","a") for append only
+# openFile = open("integer.txt","r") for read only
+# openFile = open("integer.txt","r+") for read and write(not append) this method recommended
+# openFile.write("hello\n") if writing any line in file then always use \n to create space
+# command for reading in file
+# print(openFile.readline().strip()) command for reading line
+
+# Note: if using strip method and reading integer from file and adding as object the use int() with integer
+# Note: after done using file,always close file using method openFile.close()
