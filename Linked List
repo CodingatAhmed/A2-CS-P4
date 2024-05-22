@@ -1,68 +1,71 @@
-# to create a new Linked List
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
 class LinkedList:
     def __init__(self):
-        self.HeadNode = None
-    def insert_End(self,data):
+        self.head = None
+    
+    def insert_at_End(self,data):
         newNode = Node(data)
-        if self.HeadNode == None:
-            self.HeadNode = newNode
+        if self.head == None:
+            self.head = newNode
         else:
-            headNode = self.HeadNode
-            while headNode.Next:
-                headNode = headNode.Next
-            headNode.Next = newNode
-
-    # method to delete the last element in linked list 
-    def delete_End(self):
-        CurrentNode = self.HeadNode
-        while CurrentNode.Next.Next is not None:
-            CurrentNode = CurrentNode.Next
-        CurrentNode.Next = None
-
-    # method to search all the elements in linked list
-    def Traverse(self):
-        currentNode = self.HeadNode
+            currentNode = self.head
+            while currentNode.next != None:
+                currentNode = currentNode.next
+            currentNode.next = newNode
+    
+    def delete_at_End(self):
+        currentNode = self.head
+        while currentNode.next.next != None:
+            currentNode = currentNode.next
+        currentNode.next = None
+    
+    def insert_at_front(self,data):
+        newNode = Node(data)
+        if self.head == None:
+            self.head = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+    
+    def Traversal(self):
+        currentNode = self.head
         while currentNode != None:
-            print(currentNode.Data)
-            currentNode = currentNode.Next
-
-    # method to insert element at the beginning of linked list
-    def insertBeginning(self,addData):
-        newNode = Node(addData)
-        if self.HeadNode == None:
-            self.HeadNode = newNode
-        else:
-            tempNode = self.HeadNode.Next
-            self.HeadNode.Next = newNode
-            newNode.Next = tempNode
-
-    # method to add a node at the particular position in linked list
-    def insertAtIndex(self,addNewData,index):
-        NodeToInsert = Node(addNewData)
-        myCurrentNode = self.HeadNode
+            print(currentNode.data)
+            currentNode = currentNode.next
+    
+    def delete_at_front(self):
+        self.head = self.head.next
+    
+    def insert_at_Index(self,data,index):
         position = 0
-        if position == index:
-            self.insertBeginning(addNewData)
-        else:
-            while position + 1 != index and myCurrentNode != None:
-                position += 1
-                myCurrentNode = myCurrentNode.Next
-            if myCurrentNode != None:
-                NodeToInsert.Next = myCurrentNode.Next
-                myCurrentNode.Next = NodeToInsert
-    # method to delete Node from beginning of Linked List
-    def delete_Beginning(self):
-        if self.HeadNode == None:
-            print("Linked List is empty")
-        else:
-            self.HeadNode = self.HeadNode.Next
+        currentNode = self.head
+        newNode = Node(data)
+        while position != index:
+            currentNode = currentNode.next
+            position += 1
+        newNode.next = currentNode.next
+        currentNode.next = newNode
 
-lList = LinkedList()
-lList.insert_End(20)
-lList.insert_End(40)
-lList.insert_End(80)
-lList.insertBeginning(35)
-lList.insertAtIndex(5,0)
-lList.delete_End()
-lList.delete_Beginning()
-lList.Traverse()
+myLinkedList = LinkedList()
+
+myLinkedList.insert_at_End(5)
+
+myLinkedList.insert_at_End(56)
+
+myLinkedList.insert_at_End(87)
+
+myLinkedList.insert_at_End(70)
+
+# myLinkedList.delete_at_End()
+
+myLinkedList.insert_at_front(45)
+
+# myLinkedList.delete_at_front()
+
+myLinkedList.insert_at_Index(3,2)
+
+myLinkedList.Traversal()
